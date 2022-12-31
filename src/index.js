@@ -19,7 +19,7 @@ const main = (gameRule, questions, rightAnswers) => {
     const answer = readlineSync.question('Your answer: ');
 
     if (answer !== rightAnswers[i]) {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightAnswers[i]}'.\nLet's try again, ${userName}`);
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightAnswers[i]}'.\nLet's try again, ${userName}!`);
       process.exit();
     }
     console.log('Correct!');
