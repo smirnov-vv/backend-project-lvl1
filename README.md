@@ -4,3 +4,18 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/93b14101f099d78990ff/maintainability)](https://codeclimate.com/github/smirnov-vv/backend-project-lvl1/maintainability)
 
 [Instruction](https://asciinema.org/a/548717)
+
+## Install
+
+via npm: `npm install -g brain-games`
+
+## Start
+
+Choose any game to play:
+
+1. `brain-calc`
+2. `brain-balance`
+3. `brain-even`
+4. `brain-gcd`
+5. `brain-prime`
+6. `brain-progression`
