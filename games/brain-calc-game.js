@@ -1,17 +1,16 @@
-import { main, settings } from '../src/index.js';
+import { main, getRandomNumber, settings } from '../src/index.js';
 
 export default () => {
-  const entryWords = 'What is the result of the expression?';
+  const gameRule = 'What is the result of the expression?';
 
-  const getRandomNumber = (depth) => Math.round(Math.random() * depth);
-
-  const getRandomSign = () => {
-    const mathOperations = ['+', '-', '*'];
-    return mathOperations[Math.floor(Math.random() * mathOperations.length)];
+  const getRandomSymbol = () => {
+    const mathSymbols = ['+', '-', '*'];
+    return mathSymbols[getRandomNumber(mathSymbols.length) - 1];
+    // return mathSymbols[Math.floor(Math.random() * mathSymbols.length)];
   };
 
-  const rightResult = (firstNumber, mathSign, secondNumber) => {
-    switch (mathSign) {
+  const rightResult = (firstNumber, mathSymbol, secondNumber) => {
+    switch (mathSymbol) {
       case '+':
         return `${firstNumber + secondNumber}`;
       case '-':
@@ -24,14 +23,14 @@ export default () => {
   };
 
   const questions = [];
-  const results = [];
+  const rightAnswers = [];
   for (let i = 0; i < settings.iterations; i += 1) {
     const firstNumber = getRandomNumber(settings.numberDepth);
     const secondNumber = getRandomNumber(settings.numberDepth);
-    const mathSign = getRandomSign();
-    questions.push(`${firstNumber} ${mathSign} ${secondNumber}`);
-    results.push(rightResult(firstNumber, mathSign, secondNumber));
+    const mathSymbol = getRandomSymbol();
+    questions.push(`${firstNumber} ${mathSymbol} ${secondNumber}`);
+    rightAnswers.push(rightResult(firstNumber, mathSymbol, secondNumber));
   }
 
-  main(entryWords, questions, results);
+  main(gameRule, questions, rightAnswers);
 };

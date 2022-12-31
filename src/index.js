@@ -4,18 +4,22 @@ import greeting from './cli.js';
 const settings = {
   iterations: 3,
   numberDepth: 100,
+  progressionDepth: 10,
+  progressionStep: 10,
 };
 
-const main = (entryWords, questions, results) => {
+const getRandomNumber = (depth) => Math.ceil(Math.random() * depth);
+
+const main = (gameRule, questions, rightAnswers) => {
   const userName = greeting();
-  console.log(entryWords);
+  console.log(gameRule);
 
   for (let i = 0; i < settings.iterations; i += 1) {
     console.log(`Question: ${questions[i]}`);
     const answer = readlineSync.question('Your answer: ');
 
-    if (answer !== results[i]) {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${results[i]}'.\nLet's try again, ${userName}`);
+    if (answer !== rightAnswers[i]) {
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightAnswers[i]}'.\nLet's try again, ${userName}`);
       process.exit();
     }
     console.log('Correct!');
@@ -23,4 +27,4 @@ const main = (entryWords, questions, results) => {
   console.log(`Congratulations, ${userName}!`);
 };
 
-export { main, settings };
+export { main, getRandomNumber, settings };
