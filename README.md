@@ -5,7 +5,9 @@
 
 ## Install
 
-via npm: `npm install -g play_brain-games_or`
+```
+npm install -g play_brain-games_or
+```
 
 ## Start
 
