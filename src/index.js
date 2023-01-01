@@ -9,6 +9,17 @@ const settings = {
 
 const getRandomNumber = (depth) => Math.ceil(Math.random() * depth);
 
+const prepareData = (checkFunction) => {
+  const questions = [];
+  const rightAnswers = [];
+  for (let i = 0; i < settings.iterations; i += 1) {
+    const number = getRandomNumber(settings.numberDepth);
+    questions.push(number);
+    rightAnswers.push(checkFunction(number));
+  }
+  return [questions, rightAnswers];
+};
+
 const main = (gameRule, questions, rightAnswers) => {
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
@@ -29,4 +40,6 @@ const main = (gameRule, questions, rightAnswers) => {
   console.log(`Congratulations, ${userName}!`);
 };
 
-export { main, getRandomNumber, settings };
+export {
+  main, getRandomNumber, prepareData, settings,
+};
