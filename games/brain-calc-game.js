@@ -6,7 +6,6 @@ export default () => {
   const getRandomSymbol = () => {
     const mathSymbols = ['+', '-', '*'];
     return mathSymbols[getRandomNumber(mathSymbols.length) - 1];
-    // return mathSymbols[Math.floor(Math.random() * mathSymbols.length)];
   };
 
   const rightResult = (firstNumber, mathSymbol, secondNumber) => {
@@ -22,6 +21,7 @@ export default () => {
     }
   };
 
+  // Prepare data for the game
   const questions = [];
   const rightAnswers = [];
   for (let i = 0; i < settings.iterations; i += 1) {

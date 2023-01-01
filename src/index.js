@@ -1,5 +1,4 @@
 import readlineSync from 'readline-sync';
-import greeting from './cli.js';
 
 const settings = {
   iterations: 3,
@@ -11,7 +10,10 @@ const settings = {
 const getRandomNumber = (depth) => Math.ceil(Math.random() * depth);
 
 const main = (gameRule, questions, rightAnswers) => {
-  const userName = greeting();
+  console.log('Welcome to the Brain Games!');
+  const userName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${userName}!`);
+
   console.log(gameRule);
 
   for (let i = 0; i < settings.iterations; i += 1) {
